@@ -1,24 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+
+import ListItem from "./list-item/list-item.component";
+import Title from "./title/title.component";
 
 function App() {
+  const todos = [
+    "Learn React",
+    "Master React",
+    "Monetize off of knowledge of React"
+  ];
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Title text="Todo List" />
+      <input type="text" />
+      <button>Add New Todo</button>
+      <ul>
+        {todos.map(todo => (
+          <ListItem content={todo} />
+        ))}
+      </ul>
     </div>
   );
 }
